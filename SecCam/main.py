@@ -48,7 +48,7 @@ def record_camera(camera_ip, output_dir, timer):
             out = cv2.VideoWriter(output_file, fourcc, 20.0, (int(cap.get(3)), int(cap.get(4))))
 
         # Write the frame to the output file
-        out.write(frame)
+        # out.write(frame)
 
         # Display the frame (optional)
         cv2.imshow('Recording', frame)
@@ -64,7 +64,7 @@ def record_camera(camera_ip, output_dir, timer):
 
 if __name__ == "__main__":
     # Replace 'your_ip_address' with the IP address of your camera
-    ip_address = 'camera_ip_address'
+    ip_address = '192.168.1.168'
 
     # Specify the output directory
     output_directory = 'recordings'
