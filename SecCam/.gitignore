@@ -54,3 +54,6 @@ ENV/
 *.log
 *.sqlite3
 *.sql
+
+# Results
+recordings/

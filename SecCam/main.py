@@ -2,6 +2,12 @@ import cv2
 import time
 import os
 import numpy as np
+from dotenv import find_dotenv, load_dotenv
+
+# Find .env file
+path = find_dotenv()
+# Load data stored in the .env file
+load_dotenv(path)
 
 
 def record_camera(camera_ip, username, password, output_dir, duration):
@@ -59,7 +65,7 @@ def record_camera(camera_ip, username, password, output_dir, duration):
         # Motion detection
         gray = cv2.cvtColor(smaller_frame, cv2.COLOR_BGR2GRAY)
         result = np.abs(np.mean(gray) - last_mean)
-        if result > 0.2:
+        if result > 0.5:
             motion_last_detected = current_time
             if current_time - motion_start_time >= duration * 60 or motion_out is None:
                 motion_start_time = current_time
@@ -97,10 +103,15 @@ def record_camera(camera_ip, username, password, output_dir, duration):
 
 
 if __name__ == "__main__":
+    # Storing the info on .env as variables
+    cam_user = os.getenv('cam_user')
+    cam_pass = os.getenv('cam_pass')
+    cam2 = os.getenv('camera2_ip')
+
     # Replace these with your camera's details
-    ip_address = '#'
-    username = '#'
-    password = '#'
+    ip_address = cam2
+    username = cam_user
+    password = cam_pass
 
     # Specify the output directory
     output_directory = 'recordings'
