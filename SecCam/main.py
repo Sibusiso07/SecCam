@@ -103,15 +103,10 @@ def record_camera(camera_ip, username, password, output_dir, duration):
 
 
 if __name__ == "__main__":
-    # Storing the info on .env as variables
-    cam_user = os.getenv('cam_user')
-    cam_pass = os.getenv('cam_pass')
-    cam2 = os.getenv('camera2_ip')
-
     # Replace these with your camera's details
-    ip_address = cam2
-    username = cam_user
-    password = cam_pass
+    ip_address = os.getenv('camera2_ip')
+    username = os.getenv('cam_user')
+    password = os.getenv('cam_pass')
 
     # Specify the output directory
     output_directory = 'recordings'
